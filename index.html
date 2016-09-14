@@ -9,119 +9,355 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="js/htmlTree.js"></script>
+        <script src="js/TreeElement.js"></script>
+        <script src="js/TreeGenerator.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                // program starts here 
+                var parentIdString = 'start-tree';
+                // run class
+                var app = new TreeGenerator(parentIdString);                
+            });
+        </script>
     </head>
     <body id="start-tree">
-        <header id="main-header"><div class="center">
-
-    <div id="tabzilla">
-        <a href="//www.mozilla.org/" class="no-track">mozilla</a>
-    </div>
-
-    <div class="clear header-clear"></div>
-
-
-    <a href="/pl/" class="logo">Mozilla Developer Network</a>
-
-
-    <div id="nav-sec">
         
-                  <ul>
-                  <li>
 
-    
 
-    <form>
-      <div class="oauth-login-container">
-          <div class="oauth-login-options" tabIndex="0">
-              <span class="oauth-login-options-text">
-                Zaloguj się
-              </span>
-              <span class="oauth-icon oauth-github" data-service="GitHub" data-href="/users/github/login/?next=%2Fpl%2Fdocs%2FWeb%2FJavaScript" title="GitHub"><i class="icon-github" aria-hidden="true"></i></span>
-          </div>
-          <div class="oauth-login-picker" aria-hidden="true">
-              <ul>
-                  <li>
-                    Zaloguj się lub utwórz konto:<br>
-                    <a href="/users/github/login/?next=%2Fpl%2Fdocs%2FWeb%2FJavaScript" class="login-link" data-service="GitHub"><i class="icon-github" aria-hidden="true"></i>GitHub</a>
-                  </li>
-                  <li class="wait-for-persona disabled">
-                      Zaloguj się: <a href="/docs/MDN/Contribute/Persona_Sign_In_on_MDN"><i aria-hidden="true" title="Dlaczego do logowania służy tylko Persona?" class="icon-question-sign"></i></a><br>
-                      <a href="/pl/users/signin" class="login-link launch-persona-login" data-next="/pl/docs/Web/JavaScript" data-service="Persona"><i class="icon-user" aria-hidden="true"></i>Persona</a>
-                  </li>
-              </ul>
-              
-          </div>
-      </div>
-    </form>
-</li>
-                </ul>
+
+
+        <header>
+            <section class="head-top">
+                <div>
+                    <a class="logo">
+                        <img src="img/logo.jpg"/>
+                    </a>
+                    <form class="login-form">
+                        <input type="text" placeholder="Email" name="email">
+                        <input type="text" placeholder="Password" name="password">
+                        <input type="submit" value="Sign-in">
+                    </form>
+                </div>
+            </section>
+            <section class="head-bottom">
+                <div>
+                    <nav>
+                        <ul class="menu">
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">About</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </section>
+        </header>
+
+        <button>demo button</button>
+        <div id="jstree_demo_div">
         
-    </div>
+        
+        <section class="slider" id="child-node">
+            <div>
+                <h1>Hello, world!</h1>
+                <h5>
+                    This is a template for a simple marketing of informational website. It includes a large callout called
+                    a jumbotron and three supporting pieces of content. Use ita s a staring point to create something
+                    more unique.
+                </h5>
+                <a class="button blue">Learn more</a>
+            </div>
+        </section>
 
-    <nav id="main-nav" role="navigation"><ul><li><a href="/pl/docs/Web">Platforma sieciowa<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <section class="search">
+            <div>
+                <div class="search-div">
+                    <input id="hidden-input" type="text" />
+                    <input id="front-input" type="text" placeholder="Wpisz nazwę..."/>
+                </div>
+                <div class="search-results"></div>
+            </div>
+        </section>
 
-        <div class="submenu submenu-cols-2 js-submenu" id="nav-platform-submenu">
-          <div class="submenu-column">
-            <div class="title">Technologie</div>
-            <ul>
-              <li><a href="/pl/docs/Web/HTML">HTML</a></li>
-              <li><a href="/pl/docs/Web/CSS">CSS</a></li>
-              <li><a href="/pl/docs/Web/JavaScript">JavaScript</a></li>
-              <li><a href="/pl/docs/Web/Guide/Graphics">Grafiki</a></li>
-              <li><a href="/pl/docs/Web/HTTP">HTTP</a></li>
-              <li><a href="/pl/docs/Web/API">API / DOM</a></li>
-              <li><a href="/pl/docs/Web/Apps">Aplikacje</a></li>
-              <li><a href="/pl/docs/Web/MathML">MathML</a></li>
-            </ul>
-          </div><div class="submenu-column last">
-            <div class="title">Materiały i przewodniki</div>
-            <ul>
-              <li><a href="/pl/docs/Learn">Ucz się Sieci</a></li>
-              <li><a href="/pl/docs/Web/Tutorials">Instrukcje</a></li>
-              <li><a href="/pl/docs/Web/Reference">Odniesienia</a></li>
-              <li><a href="/pl/docs/Web/Guide">Przewodniki dla programistów</a></li>
-              <li><a href="/pl/docs/Web/Accessibility">Ułatwienia dostępu</a></li>
-              <li><a href="/pl/docs/Games">Game development</a></li>
-              <li><a href="/pl/docs/Web">…więcej dokumentów</a></li>
-            </ul>
-          </div>
-        </div>
-      </li><li><a href="/pl/docs/Zones">Dokumenty Mozilli<i aria-hidden="true" class="icon-caret-down"></i></a>
+        <section>
+            <div class="ajax-content">
 
-        <div class="submenu js-submenu" id="nav-zones-submenu">
-          <div class="submenu-column">
-            <ul>
-              <li><a href="/pl/docs/Mozilla/Add-ons">Dodatki</a></li>
-              <li><a href="/pl/docs/Mozilla/Firefox">Firefox</a></li>
-              <li><a href="/pl/docs/Mozilla/Add-ons/WebExtensions">WebExtensions</a></li>
-            </ul>
-          </div>
-        </div>
-      </li><li><a href="/pl/docs/Tools">Narzędzia programistów</a></li><li><a href="/pl/docs/MDN/Feedback">Opinia<i aria-hidden="true" class="icon-caret-down"></i></a>
+            </div> 
+        </section>    
 
-        <div class="submenu js-submenu" id="nav-contact-submenu">
-          <div class="submenu-column">
-            <ul>
-                <li><a href="https://support.mozilla.org/">Znajdź pomoc dla Firefoksa<i aria-hidden="true" class="icon-external-link"></i></a></li>
-                <li><a href="http://stackoverflow.com/">Znajdź pomoc dla programistów<i aria-hidden="true" class="icon-external-link"></i></a></li>
-            </ul>
-            <ul>
-              <li><a href="/pl/docs/MDN/Community">Dołącz do społeczności MDN</a></li>
-              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.doc?bug_file_loc=https%3A//developer.mozilla.org/pl/docs/Web/JavaScript">Zgłoś problem z zawartością<i aria-hidden="true" class="icon-external-link"></i></a></li>
-              <li><a target="_blank" href="https://bugzilla.mozilla.org/form.mdn">Zgłoś błąd<i aria-hidden="true" class="icon-external-link"></i></a></li>
-            </ul>
-          </div>
-        </div>
+        <section class="news">
+            <div>
+                <article>
+                    <header>
+                        <h3>1 Heading</h3>
+                    </header>
+                    <section>
+                        <p>
+                            1 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <p class="full-content">
+                            1 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                    </section>
+                    <footer>
+                        <a class="button show-popup" href="javascript:void(0);">View details</a>
+                    </footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>2 Heading</h3>
+                    </header>
+                    <section>
+                        <p>
+                            2 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <p class="full-content">
+                            2 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                    </section>
+                    <footer>
+                        <a class="button show-popup" href="#">View details</a>
+                    </footer>
+                </article>
+                <article>
+                    <header>
+                        <h3>3 Heading</h3>
+                    </header>
+                    <section>
+                        <p>
+                            3 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <p class="full-content">
+                            3 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                            Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                    </section>
+                    <footer>
+                        <a class="button show-popup" href="#">View details</a>
+                    </footer>
+                </article>
+            </div>
+        </section>
 
-      </li><li class="nav-search-link"><a href="/pl/search" title="Search"><i aria-hidden="true" class="icon-search"></i></a></li><li class="main-nav-search"><form action="/pl/search" method="get" role="search">
-        <div class="search-wrap">
-          <label for="main-q" class="offscreen">Szukaj</label>
-          <input type="search" id="main-q" name="q" placeholder="Szukaj" data-value="" value="" />
-          <span class="search-trigger"><i aria-hidden="true" class="icon-search"></i></span>&nbsp;
-          <button type="submit" class="offscreen">Szukaj</button>
-        </div>
-      </form></li></ul></nav>
-  </div></header>
-    </body>
+            </div>
+        
+        <section class="main">
+            <div>
+                <div class="content">
+                    <ul class="tabs">
+                        <li class="tab-active" data-id="1">News</li>
+                        <li data-id="2">Gallery</li>
+                        <li data-id="3">Contact</li>                    
+                    </ul>
+                    <div class="tab-content content-active" data-id="1">
+                        <h3>Heading 1</h3>
+                        <p>
+                            1 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="number">1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td class="number">2</td>
+                                    <td>Jacob</td>
+                                    <td>Thomton</td>
+                                    <td>@fat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-content" data-id="2">
+                        <h3>Heading 2</h3>
+                        <p>
+                            2 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="number">1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td class="number">2</td>
+                                    <td>Jacob</td>
+                                    <td>Thomton</td>
+                                    <td>@fat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div> 
+                    <div class="tab-content" data-id="3">
+                        <h3>Heading 3</h3>
+                        <p>
+                            3 Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                            mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                            magna mollis euismod. Donec sed odio dui.
+                        </p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="number">1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <td class="number">2</td>
+                                    <td>Jacob</td>
+                                    <td>Thomton</td>
+                                    <td>@fat</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>                
+                </div>
+                <div class="sidebar">
+
+                    <div class="fotorama">
+                        <img src="img/landscape.jpg"/>
+                        <img src="img/landscape.jpg"/>
+                    </div>
+
+
+
+                    <p>
+                        Donec id elit non porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                        mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
+                        magna mollis euismod. Donec sed odio dui.
+                    </p>
+                    <a class="button" href="#">View details</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <section>
+                <div>
+                    <h5>
+                        This is a template for a simple marketing of informational website. It includes a large callout called
+                        a jumbotron and three supporting pieces of content. Use ita s a staring point to create something
+                        more unique.
+                    </h5>
+                </div>
+            </section>
+        </footer>
+
+        <div class="popup">
+            <div class="bg"></div>
+            <div class="popup-content">
+                <article>
+                    <header>
+                        <h2>Lorem ipsum</h2>
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </header>
+                    <section>
+
+                    </section>
+                    <footer>
+
+                    </footer>
+                </article>
+            </div>
+        </div>    
+
+        <ul class="dropdown">
+            <li>1</li>
+            <li>2</li>
+        </ul>
+        
+        <script type="text/javascript" src="js/vendor/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="js/fotorama.js"></script>
+        <script type="text/javascript" src="js/widget.js"></script>
+        <script type="text/javascript" src="js/colorpicker.js"></script>
+        
+        <script src="dist/jstree.min.js"></script>
+        
+        <script type="text/javascript" src="js/main.js"></script>
+        
+
+        
+        
+        
+</body>
 </html>
