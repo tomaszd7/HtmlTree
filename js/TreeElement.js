@@ -1,8 +1,8 @@
 
 function TreeElement(treeObject, divTop, divLeft, divWidth) {
-    this.BOX_WIDTH = 60;
+    this.BOX_WIDTH = 90;
     this.BOX_HEIGHT = 20;
-    this.BOX_MARGIN = 30;
+    this.BOX_MARGIN = 70;
 
     this.divTop = divTop;
     this.divLeft = divLeft;
@@ -18,7 +18,7 @@ function TreeElement(treeObject, divTop, divLeft, divWidth) {
 
 
     this.divBoxAttrs = {
-        height: this.BOX_HEIGHT + 'px',
+//        height: this.BOX_HEIGHT + 'px',
         width: this.BOX_WIDTH + 'px',
         position: 'absolute',
         background: '#CCC',
@@ -28,7 +28,7 @@ function TreeElement(treeObject, divTop, divLeft, divWidth) {
         padding: '5px 2px'
     }
 
-    this.divBox = document.createElement('div');
+    this.divBox = null;
 
     this.setChildren = function () {
         if (typeof this.self[this.name].children !== 'undefined') {
@@ -44,6 +44,40 @@ function TreeElement(treeObject, divTop, divLeft, divWidth) {
         }
         return result;
     }
+    
+    this.createClassString = function () {
+        if (typeof this.self[Object.keys(this.self)[0]].classList !== 'undefined') {
+            var res = '';
+            for (var i = 0; i < this.self[Object.keys(this.self)[0]].classList.length; i++) {
+                res += this.self[Object.keys(this.self)[0]].classList[i] + '<br/>';
+            }
+            return res;            
+        } else {
+            return false;
+        }            
+    }
+    
+    this.createIdString = function () {
+        if (typeof this.self[Object.keys(this.self)[0]].id !== 'undefined') {            
+            return this.self[Object.keys(this.self)[0]].id;            
+        } else {
+            return false;
+        }           
+    }
+    
+    this.createDivBox = function() {
+//        console.log(this.self);
+        this.divBox = document.createElement('div');
+        this.divBox.innerHTML = '<p class="names">'+this.name+'</p>';
+        if (id = this.createIdString()) {
+            this.divBox.innerHTML += '<p class="ids">'+ id + '</p>' ;
+        }
+        if (classString = this.createClassString()) {
+            this.divBox.innerHTML += '<p class="classes">'+ classString + '</p>' ;
+        }
+
+            
+    }
 
     this.createAttrs = function () {
         this.divBoxAttrs['text-align'] = 'center';
@@ -51,7 +85,7 @@ function TreeElement(treeObject, divTop, divLeft, divWidth) {
     }
 
     this.main = function () {
-        this.divBox.textContent = this.name;
+        this.createDivBox();
         this.createAttrs();
         this.setChildren();
     }

@@ -1,0 +1,31 @@
+body {
+    /*display: none;*/
+}
+
+p {
+    margin: 0;
+        font-weight: bold;
+}
+
+.classes {
+    color: darkorchid;
+}
+
+.names {
+
+}
+
+.ids {
+    color: crimson;
+}
+
+#stats {
+    padding: 20px;
+    background: #DDD;
+    margin-top: 20px;
+    display: block;
+}
+
+#tree {
+    display: block;
+}
